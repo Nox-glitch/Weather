@@ -1,0 +1,214 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* FULLSCREEN ANIMATED BACKGROUND */
+#backgroundAnimation {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: #dfe9f3;
+}
+
+/****************** CONTAINER ******************/
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/****************** HEADER ******************/
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+header h1 {
+    font-size: 2.7rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+/****************** SEARCH BAR ******************/
+.search-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 14px;
+    font-size: 17px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 22px rgba(0,0,0,0.08);
+}
+
+.btn {
+    padding: 14px 26px;
+    border-radius: 14px;
+    background: #0a84ff;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/****************** WEATHER CARD ******************/
+.weather-info {
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin: 20px 0;
+    animation: fadeUp .5s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.city-name {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    color: var(--text);
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.lottie-icon {
+    width: 120px;
+    height: 120px;
+}
+
+.current-temp {
+    font-size: 4rem;
+    color: #0a84ff;
+}
+
+.weather-details {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.detail {
+    background: rgba(255,255,255,0.5);
+    padding: 14px;
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+}
+
+/****************** FORECAST ******************/
+.forecast-section {
+    margin-top: 30px;
+}
+
+.forecast-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.forecast-card {
+    background: rgba(255,255,255,0.45);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.forecast-icon {
+    width: 80px;
+    height: 80px;
+}
+
+/****************** DARK MODE ******************/
+:root {
+    --text: #111;
+}
+
+.dark {
+    --text: #eee;
+}
+
+.dark #backgroundAnimation {
+    background: #1a1a1a;
+}
+
+.dark .weather-info,
+.dark .forecast-card {
+    background: rgba(0,0,0,0.4);
+}
+
+/****************** IOS SWITCH ******************/
+.switch {
+    position: relative;
+    width: 55px;
+    height: 28px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background: #0a84ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/****************** UTILS ******************/
+.hidden { display: none !important; }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Weather App</title>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dynamic Background Container -->
+    <div id="backgroundAnimation"></div>
+
+    <div class="container">
+
+        <header>
+            <h1>Weather Forecast</h1>
+
+            <div class="top-right">
+                <!-- iOS Theme Toggle -->
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter city...">
+                <button id="searchBtn" class="btn">Search</button>
+            </div>
+        </header>
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading weather...</p>
+        </div>
+
+        <!-- Error -->
+        <div id="errorMessage" class="error-message hidden">
+            <h3>City not found</h3>
+            <p>Please try again.</p>
+        </div>
+
+        <!-- Current Weather -->
+        <section id="weatherInfo" class="weather-info hidden">
+            <h2 id="cityName" class="city-name"></h2>
+
+            <div class="weather-main">
+                <div id="weatherIcon" class="lottie-icon"></div>
+                <div class="temp-box">
+                    <span id="currentTemp" class="current-temp"></span>
+                    <span class="temp-unit">°C</span>
+                </div>
+            </div>
+
+            <p id="weatherDescription" class="weather-desc"></p>
+
+            <div class="weather-details">
+                <div class="detail">
+                    <span class="label">Feels like</span>
+                    <span id="feelsLike" class="value"></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Humidity</span>
+                    <span id="humidity" class="value"></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Wind</span>
+                    <span id="windSpeed" class="value"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-Day Forecast -->
+        <section id="forecast" class="forecast-section hidden">
+            <h3>7-Day Forecast</h3>
+            <div id="forecastContainer" class="forecast-grid"></div>
+        </section>
+
+        <!-- Recent Searches -->
+        <section class="recent-searches">
+            <h3>Recent Searches</h3>
+            <div id="recentList" class="recent-list"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
